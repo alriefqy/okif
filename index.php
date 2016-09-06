@@ -6,7 +6,7 @@ require('models/load_class.php');
 echo'
 	<html>
 		<head>
-			<title>CMS Desa</title>
+			<title>Okif</title>
 		</head>
 	
 	<body>
@@ -24,6 +24,8 @@ echo'
 		case '':
 			include 'views/home.php';
 		break;
+		
+
 		
 
 	}
