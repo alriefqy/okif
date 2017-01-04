@@ -1,72 +1,66 @@
 <?php
-
 echo'
-<!DOCTYPE html>
-<html >
-  <head>
-    <meta charset="UTF-8">
-    <title>Sign-Up/Login Form</title>
-    <link href="http://fonts.googleapis.com/css?family=Titillium+Web:400,300,600" rel="stylesheet" type="text/css">
+<div id="login-page">
+	  	<div class="container">
+	  	
+		      <form class="form-login" action="" method="post">
+		        <h2 class="form-login-heading">sign in now</h2>
+		        <div class="login-wrap">
+		            <input type="text" name="user" class="form-control" placeholder="User ID" autofocus>
+		            <br>
+		            <input type="password" name="password" class="form-control" placeholder="Password">
+		            <label class="checkbox">
+		                <span class="pull-right">
+		                    <a data-toggle="modal" href="login.html#myModal"> Forgot Password?</a>
+		
+		                </span>
+		            </label>
+		            <button type="submit" name="submit" class="btn btn-theme btn-block"><i class="fa fa-lock"></i> SIGN IN</button>
+		            <hr>
+		            
+		            <div class="login-social-link centered">
+		            <p>or you can sign in via your social network</p>
+		                <button class="btn btn-facebook" type="submit"><i class="fa fa-facebook"></i> Facebook</button>
+		                <button class="btn btn-twitter" type="submit"><i class="fa fa-twitter"></i> Twitter</button>
+		            </div>
+		            <div class="registration">
+		                Dont have an account yet?<br/>
+		                <a class="" href="#">
+		                    Create an account
+		                </a>
+		            </div>
+		
+		        </div>
+		
+		          <!-- Modal -->
+		          <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal" class="modal fade">
+		              <div class="modal-dialog">
+		                  <div class="modal-content">
+		                      <div class="modal-header">
+		                          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+		                          <h4 class="modal-title">Forgot Password ?</h4>
+		                      </div>
+		                      <div class="modal-body">
+		                          <p>Enter your e-mail address below to reset your password.</p>
+		                          <input type="text" name="email" placeholder="Email" autocomplete="off" class="form-control placeholder-no-fix">
+		
+		                      </div>
+		                      <div class="modal-footer">
+		                          <button data-dismiss="modal" class="btn btn-default" type="button">Cancel</button>
+		                          <button class="btn btn-theme" type="button">Submit</button>
+		                      </div>
+		                  </div>
+		              </div>
+		          </div>
+		          <!-- modal -->
+		
+		      </form>	  	
+	  	
+	  	</div>
+	  </div>
+	  
     
-    <link rel="stylesheet" href="'.adm.'assets/css/normalize.css">
+  ';
 
-    
-        <link rel="stylesheet" href="'.adm.'/assets/css/style.css">
-
-    
-    
-    
-  </head>
-
-  <body>
-
-    <div class="form">
-      
-      <ul class="tab-group">
-        
-      </ul>
-      
-      <div class="tab-content">
-        <div id="signup">   
-          <h1>Welcome Back!</h1>
-          
-         <form action="" method="POST">
-            <div class="field-wrap">
-            <label>
-              <span class="req"></span>
-            </label>
-           <input type="text" name="user" placeholder="User" id="user">
-          </div>
-          
-          <div class="field-wrap">
-            <label>
-              
-            </label>
-            <input type="password" name="password" placeholder="password" id="pass">
-          </div>
-          
-          <p class="forgot"><a href="#">Forgot Password?</a></p>
-           <p class="forgot"><a href="'.root.'register">Register</a></p>
-          
-          <button class="button button-block"/><input type="submit" name="submit" value="Login" ></button>
-          
-          </form>
-
-
-       
-        
-      </div><!-- tab-content -->
-      
-</div> <!-- /form -->
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-
-        <script src="'.adm.'assets/js/index.js"></script>
-
-    
-    
-    
-  </body>
-</html>
-';
-?>
-
+  ?>
+  
