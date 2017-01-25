@@ -1,7 +1,9 @@
 <?php
 if (isset($model)):
     $homepage_active = $model == ''? "active" : "";
-    $pengurus_active = $model == 'pengurus'? "active" : "";
+    $pengurus_active = $model == 'pengurus' ? "active" : "";
+    $ketua_active = $model =='ketua' ? "active" : "";
+    $dewan_active = $model =='dewan' ? "active" : "";
     $mahasiswa_active = $model == 'mahasiswa'? "active" : "";
     $media_active = $model == 'informasi'? "active" : "";
     $berita_active = $model == 'berita'? "active" : "";
@@ -23,12 +25,19 @@ echo '
                           <span>Dashboard</span>
                       </a>
                   </li>
-                 <li class="sub-menu">
-                      <a class="'.$pengurus_active.'" href="'.adm.'pengurus" >
+                  <li class="sub-menu">
+                      <a class ="'.$pengurus_active.' '.$ketua_active.' '.$dewan_active.'" href="javascript:;" >
                           <i class="fa fa-user"></i>
                           <span>Pengurus</span>
                       </a>
+                      <ul class="sub">
+                          <li><a  href="'.adm.'pengurus">Daftar Pengurus HMIF</a></li>
+                          <li><a  href="'.adm.'dewan">Daftar Anggota DMMIF</a></li>
+                          <li><a  href="'.adm.'ketua">Ketua Lembaga</a></li>
+                          
+                      </ul>
                   </li>
+                 
 
                   <li class="sub-menu">
                       <a class="'.$mahasiswa_active.'"href="'.adm.'mahasiswa" >

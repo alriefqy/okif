@@ -112,7 +112,7 @@ class informasi_model
 		}
 		public function countDataLengkap()
 		 {
-			$query = $this->db->prepare("SELECT * FROM `artikel`");
+			$query = $this->db->prepare("SELECT * FROM `informasi`");
 
 			try {
 				$query->execute();
@@ -123,7 +123,7 @@ class informasi_model
 		}
 
 		public function getDataLengkap() {
-			$query = $this->db->prepare("SELECT * FROM `artikel` ORDER BY `id` DESC");
+			$query = $this->db->prepare("SELECT * FROM `informasi` ORDER BY `id` DESC");
 
 			try {
 				$query->execute();
@@ -135,7 +135,7 @@ class informasi_model
 		}
 
 		public function countDataLimit($a, $b) {
-			$query = $this->db->prepare("SELECT * FROM `artikel` LIMIT :a,:b");
+			$query = $this->db->prepare("SELECT * FROM `informasi` LIMIT :a,:b");
 			$query->bindParam(':a', $a, PDO::PARAM_INT);
 			$query->bindParam(':b', $b, PDO::PARAM_INT);
 
@@ -148,7 +148,7 @@ class informasi_model
 		}
 
 		public function getDataLimit($a, $b) {
-			$query = $this->db->prepare("SELECT * FROM `artikel` ORDER BY `id` DESC LIMIT :a,:b");
+			$query = $this->db->prepare("SELECT * FROM `informasi` ORDER BY `id` DESC LIMIT :a,:b");
 			$query->bindParam(':a', $a, PDO::PARAM_INT);
 			$query->bindParam(':b', $b, PDO::PARAM_INT);
 
@@ -159,6 +159,20 @@ class informasi_model
 			}
 
 			return $query->fetchAll(PDO::FETCH_ASSOC);
+		}
+		public function getLastInformasi()
+		{
+			$query = $this->db->prepare("SELECT * FROM `informasi` ORDER BY `waktu` DESC LIMIT 0,3 ");
+			try
+			{
+				$query->execute();
+			}
+			catch(PDOException $e)
+			{
+				die($e->getMessage());
+			}
+			return $query->fetchAll(PDO::FETCH_ASSOC);
+
 		}
 
 

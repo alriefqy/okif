@@ -78,14 +78,15 @@ class artikel_model
 			die($e->getMessage());
 		}
 	}
-	public function addArtikel($id,$judul,$content,$foto,$time)
+	public function addArtikel($id,$judul,$content,$foto,$time,$author)
 		{
-			$query = $this->db->prepare("INSERT INTO `artikel` (id,title,content,foto,time_record) VALUES (?,?,?,?,?)");
+			$query = $this->db->prepare("INSERT INTO `artikel` (id,title,content,foto,time_record,author) VALUES (?,?,?,?,?,?)");
 			$query->bindValue(1,$id);
 			$query->bindValue(2,$judul);
 			$query->bindValue(3,$content);
 			$query->bindValue(4,$foto);
 			$query->bindValue(5,$time);
+			$query->bindParam(6,$author);
 			try
 			{
 				$query->execute();
@@ -97,18 +98,20 @@ class artikel_model
 
 				
 		}
-		public function editArtikel($id,$title,$content,$foto,$time_record)
+		public function editArtikel($id,$title,$content,$foto,$time_record,$author)
 		{
 			$query = $this->db->prepare("UPDATE `artikel` SET `title` = :title,
 								`content`	= :content,
 								`foto`		= :foto,
-								`time_record`	= :time_record
+								`time_record`	= :time_record,
+								`author` 	= :author
 								WHERE `id`   =:id");
 			$query->bindParam(':id',$id,PDO::PARAM_INT);
 			$query->bindParam(':title',$title,PDO::PARAM_STR);
 			$query->bindParam(':content',$content,PDO::PARAM_STR);
 			$query->bindParam(':foto',$foto,PDO::PARAM_STR);
 			$query->bindParam(':time_record',$time_record,PDO::PARAM_STR);
+			$query->bindParam(':author',$author,PDO::PARAM_INT);
 			
 
 			try
@@ -165,7 +168,7 @@ class artikel_model
 		}
 		public function lastArtikel()
 		{
-			$query = $this->db->prepare("SELECT * FROM `artikel` ORDER BY `time_record` asc limit 0,2");
+			$query = $this->db->prepare("SELECT * FROM `artikel` ORDER BY `time_record` asc limit 0,3");
 			try
 			{
 				$query->execute();

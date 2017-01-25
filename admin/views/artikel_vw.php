@@ -27,6 +27,7 @@ if(isset($method)) :
 										<th>Judul</th>
 										<th>Content</th>
 										<th>Time Record</th>
+										<th>Author</th>
 										<th>Foto</th>
 										<th>Aksi</th>
 									</tr>
@@ -40,6 +41,7 @@ if(isset($method)) :
 											<td>'.$a['title'].'</td>
 											<td>'.$a['content'].'</td>
 											<td>'.$a['time_record'].'</td>
+											<td>'.$a['author'].'</td>
 											<td><img src="'.root.'asset/artikel/'.$a['foto'].'" width="100" height="100"></td>
 											<td><a href="'.adm.'artikel/edit/'.$a['id'].'"><button class="btn btn-primary btn-xs"><i class="fa fa-pencil">&nbspEdit</i></button></a>
 												<button class="btn btn-danger btn-xs"><a href=\'javascript: hapusAlert("'.$a['id'].'");\'><i class="fa fa-trash-o ">&nbspDelete</i></button></td>
@@ -75,6 +77,7 @@ if(isset($method)) :
 																<input type="file" name="foto" class="form-control">
 															</div>
 														</div>
+														<input type="hidden" name="author" value="'.$_SESSION['name'].'">
 														<button type="submit" name="submit" class="btn btn-success">Tambahkan</button>
 													</form>
 												</div>
@@ -117,7 +120,9 @@ if(isset($method)) :
 															</div>
 															<input type="hidden" name="id"  value="'.$a['id'].'">
 															<input type="hidden" name="foto"  value="'.$a['foto'].'">
+															<input type="text" name="author" value="'.$_SESSION['name'].'">
 														</div>
+
 														<button type="submit" name="edit" class="btn btn-success">Tambahkan</button>
 													</form>
 												</div>

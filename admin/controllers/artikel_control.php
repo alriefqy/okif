@@ -25,7 +25,8 @@ if ($model = 'artikel' AND $method = 'add')
 			$foto = $libs->uploadImageToFolder('../../asset/artikel/', $_FILES['foto']);
 		}
 		$date = date('m/d/20y h:i:sa' , time());
-		$artikel->addArtikel($id_acak,$title,$content,$foto,$date);
+		$author = $_POST['author'];
+		$artikel->addArtikel($id_acak,$title,$content,$foto,$date,$author);
 		header('Location:'.adm.'artikel');
 		
 	}
@@ -49,7 +50,8 @@ if ($model = 'artikel' AND $method = 'add')
 				$foto = $libs->uploadImageToFolder('../../asset/artikel/', $_FILES['foto'],$id_acak);
 			}
 			$date = date('m/d/20y h:i:sa' , time());
-			$artikel->editArtikel($id,$title,$content,$foto,$date);
+			$author = $_POST['author'];
+			$artikel->editArtikel($id,$title,$content,$foto,$date,$author);
 			header('Location:'.adm.'artikel');
 			
 		}

@@ -84,6 +84,19 @@ if(isset($method)) :
 									</div>
 								</div>
 								<div class="form-group">
+									<label class="col-sm-2 col-sm-2 control-label">Kompartemen</label>
+									<div class="col-sm-10">
+										<select name="kompartemen" class="form-control" >
+											<option value="pengurus" selected="selected">Pengurus</option>
+											<option value="KESEKRETARIATAN">Kesekretariatan</option>
+											<option value="PENDIDIKAN">Pendidikan</option>
+											<option value="PENGABDIAN">Pengabdian Masyarakat</option>
+											<option value="PSDM">Pengembangan Sumber Daya Mahasiswa</option>
+											<option value="HUMAS">Hubungan Masyarakat</option>
+										</select>
+									</div>
+								</div>
+								<div class="form-group">
 									<label class="col-sm-2 col-sm-2 control-label">Periode Kepengurusan</label>
 									<div class="col-sm-10">
 										<input type="text" name="periode" class="form-control"  required>
@@ -120,25 +133,37 @@ if(isset($method)) :
 								<h4 class="mb"><i class="fa fa-angle-right"></i> Form Elements</h4>
 								<form class="form-horizontal style-form" method="post" action="'.$aksi.'edit" enctype="multipart/form-data">
 									<div class="form-group">
-										<label class="col-sm-2 col-sm-2 control-label">Default</label>
+										<label class="col-sm-2 col-sm-2 control-label">Nama</label>
 										<div class="col-sm-10">
 											<input type="text" name="name" class="form-control" value="'.$a['name'].'" required>
 										</div>
 									</div>
 									<div class="form-group">
-										<label class="col-sm-2 col-sm-2 control-label">Default</label>
+										<label class="col-sm-2 col-sm-2 control-label">Jabatan</label>
 										<div class="col-sm-10">
 											<input type="text" name="jabatan" class="form-control" value="'.$a['jabatan'].'" required>
 										</div>
 									</div>
 									<div class="form-group">
-										<label class="col-sm-2 col-sm-2 control-label">Default</label>
+										<label class="col-sm-2 col-sm-2 control-label">Periode</label>
 										<div class="col-sm-10">
 											<input type="text" name="periode" class="form-control" value="'.$a['periode'].'" required>
 										</div>
 									</div>
 									<div class="form-group">
-										<label class="col-sm-2 col-sm-2 control-label">Default</label>
+									<label class="col-sm-2 col-sm-2 control-label">Kompartemen</label>
+									<div class="col-sm-10">
+										<select name="kompartemen" value="'.$a['kompartemen'].'" class="form-control" >
+											<option value="KESEKRETARIATAN">Kesekretariatan</option>
+											<option value="PENDIDIKAN">Pendidikan</option>
+											<option value="PENGABDIAN">Pengabdian Masyarakat</option>
+											<option value="PSDM">Pengembangan Sumber Daya Mahasiswa</option>
+											<option value="HUMAS">Hubungan Masyarakat</option>
+										</select>
+									</div>
+								</div>
+									<div class="form-group">
+										<label class="col-sm-2 col-sm-2 control-label">Foto</label>
 										<div class="col-sm-10">
 											<input type="file" name="foto" class="form-control">
 										</div>

@@ -1,6 +1,18 @@
 <?php
 echo'
-<ol>
+	<section id="single-page-header">
+		<div class="overlay">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-6 col-sm-6 col-xs-12">
+						<div class="single-page-header-left">
+							<h2>INFO SEPUTAR IT</h2>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
 	';
 	if ($artikel->countDataLengkap() > 0) 
 	{
@@ -12,21 +24,52 @@ echo'
 					$no = ($page - 1) * $limit + 1; // menentukan asending nomor tiap paging
 					//$author = $author->getAuthorByUser($parameter);
 					$data = $artikel->getDataLimit($start, $limit);
-
+					
 					foreach ($data as $a) 
 						//$a = $artikel->getArtikel();
 						//foreach ($a as $a)
 					{
-						echo'
-						<li><h1>'.$a['title'].'</h1></li>
-						<p>'.substr($a['content'],0,200).'</p>
-						<a href="'.root.'artikel/read/'.$a['id'].'">Continue Reading</a>
+						echo '
+
+		<section id="blog-archive">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="blog-archive-area">
+						<div class="row">
+							<div class="col-md-8">
+								<div class="blog-archive-left">
+									<!-- Start blog news single -->
+									<article class="blog-news-single">
+										<div class="blog-news-img">
+											<a href="'.root.'artikel/read/'.$a['id'].'"><img src="'.root.'/asset/artikel/'.$a['foto'].'" alt="image"></a>
+										</div>
+										<div class="blog-news-title">
+											<h2><a href="'.root.'artikel/read/'.$a['id'].'">'.$a['title'].'</a></h2>
+											<p>By <b>'.$a['author'].'</b><span class="blog-date">|'.$a['time_record'].'</span></p>
+										</div>
+										<div class="blog-news-details">
+											<p>'.substr($a['content'], 0,200).'</p>
+											<a class="blog-more-btn" href="'.root.'artikel/read/'.$a['id'].'">Read More <i class="fa fa-long-arrow-right"></i></a>
+										</div>
+									</article>
+									<!-- Start blog pagination -->
+									
+									
+								</div>
+							</div>
+							
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>  
+		</section>
 
 						';
+						
 					}
-					echo '
-					<ul class="pagination">
-					';
+
 						$root = root.$model;
 						$blok = 12;
 						$ini = ceil($page / $blok);
@@ -37,51 +80,40 @@ echo'
 						$kurang1 = $page - 1;
 						$tambah1 = $page + 1;
 
+
+					echo '
+						
+					<div class="blog-pagination">
+						<ul class="pagination-nav">
+										
+					';
+						
 						if ($pages >= 1 && $page <= $pages) 
 						{
-							echo ($page != 1 OR empty($page))? '<li style="cursor: pointer;"> <a href="'.$root.'?page='.$kurang1.'"><<</a> </li>': '';
+							echo ($page != 1 OR empty($page))? '<li> <a href="'.$root.'?page='.$kurang1.'"><<</a> </li>': '';
 
 							for ($x = $mulai; $x <= $selesai; $x++) 
 							{
 								if ($x == $page) 
 								{
-									echo '<li style="cursor: pointer;" class="active"> <a>'.$x.'</a> </li>';
+									echo '<strong><li style="color:blue"> <a>'.$x.'</a> </li></strong>';
 								} else 
 								{
-									echo '<li style="cursor: pointer;"> <a href="'.$root.'?page='.$x.'">'.$x.'</a> </li>';
+									echo '<li> <a href="'.$root.'?page='.$x.'">'.$x.'</a> </li>';
 								};
 							}
 
-							echo ($page != $pages)? '<li style="cursor: pointer;"> <a href="'.$root.'?page='.$tambah1.'">>></a> </li>' : '';
+							echo ($page != $pages)? '<li> <a href="'.$root.'?page='.$tambah1.'">>></a> </li>' : '';
 						}
 						echo '
 					</ul>
 				</div>
 
+				
 				';
 				
 	}
 			
-			$top = $artikel->topArtikel();
-			echo'</ol>
-			<h3>Top Artikel</h3>
-			<ol>';
-				foreach ($top as $a)
-				{
-					echo '
-					<li>'.$a['title'].'</li>
-					';
-				}
-				echo '</ol>';
-				echo '<ol>
-				<h3>Last Artikel</h3>';
-
-				$last = $artikel->lastArtikel();
-				foreach ($last as $last)
-				{
-					echo '<li>'.$last['title'].'</li>';
-				}
-				echo '</ol>';
-
+			
 
 				?>

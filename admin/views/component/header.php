@@ -10,20 +10,20 @@ echo'
     <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
 
     <title>Dashboard OKIF FT-UH</title>
-
+    <link rel="shortcut icon" type="image/icon" href="'.adm.'assets/img/original.png"/>
     <!-- Bootstrap core CSS -->
-    <link href="'.root.'assets/css/bootstrap.css" rel="stylesheet">
+    <link href="'.adm.'assets/css/bootstrap.css" rel="stylesheet">
     <!--external css-->
-    <link href="'.root.'assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
-    <link rel="stylesheet" type="text/css" href="'.root.'assets/css/zabuto_calendar.css">
-    <link rel="stylesheet" type="text/css" href="'.root.'assets/js/gritter/css/jquery.gritter.css" />
-    <link rel="stylesheet" type="text/css" href="'.root.'assets/lineicons/style.css">    
+    <link href="'.adm.'assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="'.adm.'assets/css/zabuto_calendar.css">
+    <link rel="stylesheet" type="text/css" href="'.adm.'assets/js/gritter/css/jquery.gritter.css" />
+    <link rel="stylesheet" type="text/css" href="'.adm.'assets/lineicons/style.css">    
     
     <!-- Custom styles for this template -->
-    <link href="'.root.'assets/css/styles.css" rel="stylesheet">
-    <link href="'.root.'assets/css/style-responsive.css" rel="stylesheet">
+    <link href="'.adm.'assets/css/style.css" rel="stylesheet">
+    <link href="'.adm.'assets/css/style-responsive.css" rel="stylesheet">
 
-    <script src="'.root.'assets/js/chart-master/Chart.js"></script>
+    <script src="'.adm.'assets/js/chart-master/Chart.js"></script>
     
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>

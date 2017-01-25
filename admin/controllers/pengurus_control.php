@@ -19,6 +19,8 @@ if ($model = 'pengurus' AND $method = 'add')
 		$name = $_POST['name'];
 		$jabatan = $_POST['jabatan'];
 		$periode = $_POST['periode'];
+
+		$status = $_POST['kompartemen'];
 		$foto = "";
 		if ($_FILES['foto']['tmp_name'] != "")
 		{
@@ -28,14 +30,14 @@ if ($model = 'pengurus' AND $method = 'add')
 		{
 			$foto = 'error';
 		}
-		$pengurus->addPengurus($id_acak,$name,$jabatan,$periode,$foto);
-		header('Location:'.adm.'pengurus');
+		$pengurus->addPengurus($id_acak,$name,$jabatan,$periode,$status,$foto);
 		
 	}
 
 
 	if ($model = 'pengurus' AND $method = 'edit')
 	{
+		header('Location:'.adm.'pengurus');
 
 		if(isset($_POST['edit']))
 		{
@@ -45,13 +47,14 @@ if ($model = 'pengurus' AND $method = 'add')
 			$name = $_POST['name'];
 			$jabatan = $_POST['jabatan'];
 			$periode = $_POST['periode'];
+			$status	= $_POST['kompartemen'];
 			$foto = $_POST['foto'];
 			if ($_FILES['foto']['tmp_name'] != "")
 			{
 				$libs->deleteFile('../../asset/pengurus/',$foto);
 				$foto = $libs->uploadImageToFolder('../../asset/pengurus/',$_FILES['foto'],$id_acak);
 			}
-			$pengurus->editPengurus($id,$name,$jabatan,$periode,$foto);
+			$pengurus->editPengurus($id,$name,$jabatan,$periode,$status,$foto);
 			header('Location:'.adm.'pengurus');
 		}
 		

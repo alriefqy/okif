@@ -14,12 +14,15 @@ function autoload($class)
 	{
 		$user = new user_model($db);
 		$pengurus = new pengurus_model($db);
+		$pi = new pengurus_model($db);
 		$libs = new libs_model($db);
 		$artikel = new artikel_model($db);
 		$informasi = new informasi_model($db);
 		$akun = new user_model($db);
 		$mahasiswa = new mahasiswa_model($db);
 		$alumni = new mahasiswa_model($db);
+		$ketua = new ketua_model($db);
+		$dewan = new dewan_model($db);
 		
 	} 
 	catch (Exception $e) 

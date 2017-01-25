@@ -149,7 +149,7 @@
                       <!-- First Member -->
                       <div class="desc">
                         <div class="thumb">
-                          <img class="img-circle" src="'.root.'assets/img/D42114502.jpg" width="35px" height="35px" align="">
+                          <img class="img-circle" src="'.adm.'assets/img/D42114502.jpg" width="35px" height="35px" align="">
                         </div>
                         <div class="details">
                           <p><a href="#">Al Riefqy Dasmito</a><br/>

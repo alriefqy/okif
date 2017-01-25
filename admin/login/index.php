@@ -22,13 +22,13 @@ require('../../libs/routers.php');
 		    <title>Login Page Admin OKIF</title>
 
 		    <!-- Bootstrap core CSS -->
-		    <link href="'.root.'assets/css/bootstrap.css" rel="stylesheet">
+		    <link href="'.adm.'assets/css/bootstrap.css" rel="stylesheet">
 		    <!--external css-->
-		    <link href="'.root.'assets/font-awesome/css/font-awesome.css" rel="stylesheet">
+		    <link href="'.adm.'assets/font-awesome/css/font-awesome.css" rel="stylesheet">
 		        
 		    <!-- Custom styles for this template -->
-		    <link href="'.root.'assets/css/style.css" rel="stylesheet">
-		    <link href="'.root.'assets/css/style-responsive.css" rel="stylesheet">
+		    <link href="'.adm.'assets/css/style.css" rel="stylesheet">
+		    <link href="'.adm.'assets/css/style-responsive.css" rel="stylesheet">
 
 		    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 		    <!--[if lt IE 9]>
@@ -51,8 +51,7 @@ require('../../libs/routers.php');
 			include ('../views/login.php');
 			break;
 	}
-	echo'
-		<a href="'.root.'register">Register</a>	';
+	
 			if (isset($_POST['submit'])) 
 		{
 			
@@ -104,14 +103,14 @@ require('../../libs/routers.php');
 				//}	
 		echo'
 		<!-- js placed at the end of the document so the pages load faster -->
-    <script src="'.root.'assets/js/jquery.js"></script>
-    <script src="'.root.'assets/js/bootstrap.min.js"></script>
+    <script src="'.adm.'assets/js/jquery.js"></script>
+    <script src="'.adm.'assets/js/bootstrap.min.js"></script>
 
     <!--BACKSTRETCH-->
     <!-- You can use an image of whatever size. This script will stretch to fit in any screen size.-->
-    <script type="text/javascript" src="'.root.'assets/js/jquery.backstretch.min.js"></script>
+    <script type="text/javascript" src="'.adm.'assets/js/jquery.backstretch.min.js"></script>
     <script>
-        $.backstretch("'.root.'assets/img/login-bg.jpg", {speed: 500});
+        $.backstretch("'.adm.'assets/img/login-bg.jpg", {speed: 500});
     </script>
     </body>
     </html>
