@@ -9,7 +9,7 @@ class artikel_model
 	}
 	public function getArtikel()
 	{
-		$query = $this->db->prepare("SELECT * FROM  `artikel` ");
+		$query = $this->db->prepare("SELECT * FROM  `artikel`");
 		try
 		{
 			$query->execute();
@@ -63,6 +63,41 @@ class artikel_model
 				echo $e;
 			}
 			//update tidak memerlukan return query
+		}
+	public function findArtikel($cari,$a,$b)
+		{
+			$query = $this->db->prepare("SELECT * FROM `artikel` WHERE IFNULL(title,'') LIKE CONCAT('%',:cari,'%') OR IFNULL(content,'') LIKE CONCAT('%',:cari2,'%') LIMIT :a,:b") ;//fungsi query pencarian 
+			$query->bindParam(':cari',$cari,PDO::PARAM_STR);
+			$query->bindParam(':cari2',$cari,PDO::PARAM_STR);
+			$query->bindParam(':a',$a,PDO::PARAM_INT);
+			$query->bindParam(':b',$b,PDO::PARAM_INT);
+			try
+			{
+				$query->execute();
+			}
+			catch(PDOexception $e)
+			{
+				die($e->getMessage);
+			}
+			return $query->fetchAll(PDO::FETCH_ASSOC);
+			
+		}
+	public function countDataFind($cari)
+		{
+			$query = $this->db->prepare("SELECT * FROM `artikel` WHERE IFNULL(title,'') LIKE CONCAT('%',:cari,'%') OR IFNULL(content,'') LIKE CONCAT('%',:cari2,'%') ") ;//fungsi query pencarian 
+			$query->bindParam(':cari',$cari,PDO::PARAM_STR);
+			$query->bindParam(':cari2',$cari,PDO::PARAM_STR);
+			
+			try
+			{
+				$query->execute();
+				return $query->rowCount();//menghitung jumlah data berdasarkan hasil query pencarian
+			}
+			catch(PDOexception $e)
+			{
+				die($e->getMessage);
+			}
+			
 		}
 	public function hitCounter($hit,$id)
 	{
@@ -204,7 +239,7 @@ class artikel_model
 		}
 
 		public function countDataLimit($a, $b) {
-			$query = $this->db->prepare("SELECT * FROM `artikel` LIMIT :a,:b");
+			$query = $this->db->prepare("SELECT * FROM `artikel` LIMIT :a,:b ORDER BY `time_record`");
 			$query->bindParam(':a', $a, PDO::PARAM_INT);
 			$query->bindParam(':b', $b, PDO::PARAM_INT);
 
@@ -217,7 +252,7 @@ class artikel_model
 		}
 
 		public function getDataLimit($a, $b) {
-			$query = $this->db->prepare("SELECT * FROM `artikel` ORDER BY `id` DESC LIMIT :a,:b");
+			$query = $this->db->prepare("SELECT * FROM `artikel` ORDER BY `time_record` DESC LIMIT :a,:b");
 			$query->bindParam(':a', $a, PDO::PARAM_INT);
 			$query->bindParam(':b', $b, PDO::PARAM_INT);
 

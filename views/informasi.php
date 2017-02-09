@@ -46,7 +46,7 @@ echo'
 										</div>
 										<div class="blog-news-title">
 											<h2><a href="'.root.'informasi/read/'.$a['id'].'">'.$a['kegiatan'].'</a></h2>
-											<p>By <b>admin</b></p>
+											<p>By <b>admin&nbsp|'.$libs->tgl_indo($a['waktu']).'</b></p>
 										</div>
 										<div class="blog-news-details">
 											<p>'.substr($a['content'], 0,200).'</p>

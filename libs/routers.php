@@ -1,6 +1,4 @@
 <?php 
-
-
 	$url = isset($_GET['p']) ? $_GET['p'] : null;
 	$url = rtrim($url, '/');
 	//fungsi untuk memfilter valiaber (variabel yg ingin difilter, pilihan mau di filter secara apa variabel tersebut ) . untuk menghapus karakter yang tidak diinginkan di url contoh ' + % 

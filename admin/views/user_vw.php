@@ -69,13 +69,13 @@ if(isset($method)) :
 									</div>
 								</div>
 								<div class="form-group">
-									<label class="col-sm-2 col-sm-2 control-label">Foto</label>
+									<label class="col-sm-2 col-sm-2 control-label">Password</label>
 									<div class="col-sm-10">
 										<input type="password" name="password" class="form-control"  required>
 									</div>
 								</div>
 								<div class="form-group">
-									<label class="col-sm-2 col-sm-2 control-label">Foto</label>
+									<label class="col-sm-2 col-sm-2 control-label">Level Admin</label>
 									<div class="col-sm-10">
 										<select class="form-control" name="level">
 										<option class="form-control" value="Admin">Admin</option>

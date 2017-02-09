@@ -1,8 +1,52 @@
+<script src="<?php echo adm; ?>tinymce/js/tinymce/tinymce.min.js"></script>
+  <script>
+    tinymce.init({selector:'textarea'});
+  </script>
+<script src="<?php echo root;?>assets/js/jquery.min.js"></script>
+<script type="text/javascript">
+	function filePreview(input)
+	{
+		if(input.files && input.files[0])
+		{
+			var reader = new FileReader();
+			reader.onload = function(e)
+			{
+
+				$('#uploadForm + img').remove();
+				$('#blah').attr('src',e.target.result);
+				
+			}
+			reader.readAsDataURL(input.files[0]);
+		}
+	}
+</script>
+<script type="text/javascript">
+	function filePreview2(input)
+	{
+		if(input.files && input.files[0])
+		{
+			var reader = new FileReader();
+			reader.onload = function(e)
+			{
+				$('#uploadForm2 + img').remove();
+				$('#edit').attr('src',e.target.result);
+			}
+			reader.readAsDataURL(input.files[0]);
+		}
+	}
+</script>
+
+
+
 <?php
 
 $aksi = adm."controllers/artikel_control.php?model=artikel&method=";
 if(isset($method)) :
 	echo '
+
+<script type="text/javascript" src="'.root.'assets/datatables/js/jquery.js"></script>
+<script type="text/javascript" src="'.root.'assets/datatables/js/dataTables.min.js"></script>
+<script type="text/javascript" src="'.root.'assets/datatables/js/jquery.dataTables.min.js"></script>
 <section id="main-content">
 	<section class="wrapper">
 		<h3><i class="fa fa-angle-right"></i>Artikel</h3>
@@ -18,9 +62,9 @@ if(isset($method)) :
 							$a = $artikel->getArtikel();
 
 							echo '
-
+							
 							<h4><a href="'.adm.'artikel/add"><button type="button" class="btn btn-default">Tambah Artikel</button></a></h4>
-							<table id="example3" class="table table-bordered table-striped table-condensed">
+							<table class="table table-striped table-bordered table-hover" id="mydata">
 								<thead>
 									<tr>
 										<th>No</th>
@@ -39,7 +83,7 @@ if(isset($method)) :
 										<tr>
 											<td>'.$no++.'</td>
 											<td>'.$a['title'].'</td>
-											<td>'.$a['content'].'</td>
+											<td>'.substr($a['content'], 0,200).'</td>
 											<td>'.$a['time_record'].'</td>
 											<td>'.$a['author'].'</td>
 											<td><img src="'.root.'asset/artikel/'.$a['foto'].'" width="100" height="100"></td>
@@ -57,7 +101,7 @@ if(isset($method)) :
 											<div class="col-lg-12">
 												<div class="form-panel">
 													<h4 class="mb"><i class="fa fa-angle-right"></i> Tambah Data</h4>
-													<form class="form-horizontal style-form" action="'.$aksi.'add" method="POST" enctype="multipart/form-data">
+													<form class="form-horizontal style-form" action="'.$aksi.'add" method="POST" enctype="multipart/form-data" id="uploadForm">
 
 														<div class="form-group">
 															<label class="col-sm-2 col-sm-2 control-label">Judul Artikel</label>
@@ -68,13 +112,26 @@ if(isset($method)) :
 														<div class="form-group">
 															<label class="col-sm-2 col-sm-2 control-label">Konten Artikel </label>
 															<div class="col-sm-10">
-																<textarea class="form-control" name="content"></textarea>
+																<textarea rows="10" class="form-control" name="content"></textarea>
 															</div>
 														</div>
 														<div class="form-group">
 															<label class="col-sm-2 col-sm-2 control-label">Foto</label>
 															<div class="col-sm-10">
-																<input type="file" name="foto" class="form-control">
+																<input type="file" name="foto" id="file" class="form-control">
+																<i>Ket: Ukuran gambar harus 900x500 (rasio 9:5)</i><br/><br/>
+															</div>
+
+
+															<label class="col-sm-2 control-label"></label>
+															<div class="col-sm-10">
+																<script>
+																	$("#file").change(function()
+																	{
+																		filePreview(this);
+																	});
+																</script>
+																<img style="max-height: 250px;" style="" src="'.root.'asset/image/okif.png" id="blah">
 															</div>
 														</div>
 														<input type="hidden" name="author" value="'.$_SESSION['name'].'">
@@ -96,38 +153,50 @@ if(isset($method)) :
 											echo'
 
 											<div class="row mt">
-											<div class="col-lg-12">
-												<div class="form-panel">
-													<h4 class="mb"><i class="fa fa-angle-right"></i> Tambah Data</h4>
-													<form class="form-horizontal style-form" action="'.$aksi.'edit" method="POST" enctype="multipart/form-data">
-														
-														<div class="form-group">
-															<label class="col-sm-2 col-sm-2 control-label">Judul Artikel</label>
-															<div class="col-sm-10">
-																<input type="text" name="title" class="form-control" value="'.$a['title'].'"  required>
-															</div>
-														</div>
-														<div class="form-group">
-															<label class="col-sm-2 col-sm-2 control-label">Konten Artikel </label>
-															<div class="col-sm-10">
-																<textarea class="form-control" name="content">'.$a['content'].'</textarea>
-															</div>
-														</div>
-														<div class="form-group">
-															<label class="col-sm-2 col-sm-2 control-label">Foto</label>
-															<div class="col-sm-10">
-																<input type="file" name="foto" class="form-control">
-															</div>
-															<input type="hidden" name="id"  value="'.$a['id'].'">
-															<input type="hidden" name="foto"  value="'.$a['foto'].'">
-															<input type="text" name="author" value="'.$_SESSION['name'].'">
-														</div>
+												<div class="col-lg-12">
+													<div class="form-panel">
+														<h4 class="mb"><i class="fa fa-angle-right"></i> Tambah Data</h4>
+														<form class="form-horizontal style-form" action="'.$aksi.'edit" method="POST" enctype="multipart/form-data" id="">
 
-														<button type="submit" name="edit" class="btn btn-success">Tambahkan</button>
-													</form>
-												</div>
-											</div><!-- col-lg-12-->      	
-										</div><!-- /row -->
+															<div class="form-group">
+																<label class="col-sm-2 col-sm-2 control-label">Judul Artikel</label>
+																<div class="col-sm-10">
+																	<input type="text" name="title" class="form-control" value="'.$a['title'].'"  required>
+																</div>
+															</div>
+															<div class="form-group">
+																<label class="col-sm-2 col-sm-2 control-label">Konten Artikel </label>
+																<div class="col-sm-10">
+																	<textarea class="form-control" name="content">'.$a['content'].'</textarea>
+																</div>
+															</div>
+															<div class="form-group">
+																<label class="col-sm-2 col-sm-2 control-label">Foto</label>
+																<div class="col-sm-10">
+																	<input type="file" name="foto" class="form-control" id="foto">
+																</div>
+																
+																<label class="col-sm-2 control-label"></label>
+																<br><br>
+																<div class="col-sm-10">
+																	<script type="text/javascript">
+																$("#foto").change(function()
+																	{
+																		filePreview2(this);
+																	});
+																</script>
+																	<img style="max-height: 250px;"  src="'.root.'asset/artikel/'.$a['foto'].'" id="edit">
+																</div>
+																<input type="hidden" name="id"  value="'.$a['id'].'">
+																<input type="hidden" name="foto"  value="'.$a['foto'].'">
+																<input type="hidden" name="author" value="'.$_SESSION['name'].'">
+															</div>
+
+															<button type="submit" name="edit" class="btn btn-success">Tambahkan</button>
+														</form>
+													</div>
+												</div><!-- col-lg-12-->      	
+											</div><!-- /row -->
 
 											
 											';
@@ -150,3 +219,13 @@ if(isset($method)) :
 											}
 										}
 									</script>
+									<script>
+										
+										$('#mydata').dataTable();
+
+									</script>
+
+
+									
+
+									

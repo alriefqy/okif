@@ -13,11 +13,12 @@ echo'
 			</div>
 		</div>
 	</section>
+
 	';
 	if ($artikel->countDataLengkap() > 0) 
 	{
 					$semua = $artikel->countDataLengkap();
-					$limit = 2; // jumlah query per berita 
+					$limit = 5; // jumlah query per berita 
 					$pages = ceil($semua / $limit); // melihat total blok yang ada
 					$page = (isset($_GET['page']))? (int)$_GET['page'] : 1; // default page
 					$start = ($page - 1) * $limit; //startnya 
@@ -46,7 +47,7 @@ echo'
 										</div>
 										<div class="blog-news-title">
 											<h2><a href="'.root.'artikel/read/'.$a['id'].'">'.$a['title'].'</a></h2>
-											<p>By <b>'.$a['author'].'</b><span class="blog-date">|'.$a['time_record'].'</span></p>
+											<p>By <b>'.$a['author'].'</b><span class="blog-date">|'.$libs->tgl_indo($a['time_record']).'</span></p>
 										</div>
 										<div class="blog-news-details">
 											<p>'.substr($a['content'], 0,200).'</p>
@@ -69,6 +70,7 @@ echo'
 						';
 						
 					}
+					
 
 						$root = root.$model;
 						$blok = 12;

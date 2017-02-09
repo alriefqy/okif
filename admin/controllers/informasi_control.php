@@ -18,7 +18,7 @@ if ($model = 'informasi' AND $method = 'add')
 	{
 		$id_acak = '1'.date('Hi').mt_rand(100,999);
 		$kegiatan = $_POST['kegiatan'];
-		$waktu = date('m/d/20y h:i:sa' , time());
+		$waktu = date('Y-m-d');
 		$content = $_POST['content'];
 		$foto = "";
 		if ($_FILES['foto']['tmp_name'] != "")
@@ -42,7 +42,7 @@ if ($model = 'informasi' AND $method = 'add')
 			$id_acak = '1'.date('Hi').mt_rand(100,999);
 			$id = $_POST['id'];
 			$kegiatan = $_POST['kegiatan'];
-			$waktu = date('m/d/20y h:i:sa' , time());
+			$waktu = date('Y-m-d');
 			$content = $_POST['content'];
 			$foto = $_POST['foto'];
 			if ($_FILES['foto']['tmp_name'] != "")
@@ -50,7 +50,7 @@ if ($model = 'informasi' AND $method = 'add')
 				$libs->deleteFile('../../asset/galeri/',$foto);
 				$foto = $libs->uploadImageToFolder('../../asset/galeri/', $_FILES['foto'],$id_acak);
 			}
-			$date = date('m/d/20y h:i:sa' , time());
+			
 			$informasi->editInformasi($id,$kegiatan,$waktu,$content,$foto);
 			header('Location:'.adm.'informasi');
 			

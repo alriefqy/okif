@@ -1494,7 +1494,13 @@ img{
   padding: 25px 0;
   width: 100%;
 }
-
+#footer2{
+  background-color: #171717;
+  display: inline;
+  float: left;
+  padding: 25px 0;
+  width: 100%;
+}
 .footer-left{
   display: inline;
   float: left;
@@ -1522,9 +1528,17 @@ img{
   text-align: right;
   width: 100%;
 } 
+.footer-right2{
+
+  display: inline;
+  float: left;
+  padding-left:30%; 
+  text-align: left;
+  width: 100%;
+} 
 
 .footer-right a{
-  color: #5c5c5c;
+  color: white;
   font-size: 18px;
   padding: 0 10px;
   -webkit-transition: all 0.5s;
@@ -2189,6 +2203,7 @@ img{
 .contact-area-left p{
   font-size: 15px;
 }
+
 
 .contact-area-left .single-address {
   font-size: 15px;

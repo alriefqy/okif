@@ -18,17 +18,8 @@ echo'
 		            <button type="submit" name="submit" class="btn btn-theme btn-block"><i class="fa fa-lock"></i> SIGN IN</button>
 		            <hr>
 		            
-		            <div class="login-social-link centered">
-		            <p>or you can sign in via your social network</p>
-		                <button class="btn btn-facebook" type="submit"><i class="fa fa-facebook"></i> Facebook</button>
-		                <button class="btn btn-twitter" type="submit"><i class="fa fa-twitter"></i> Twitter</button>
-		            </div>
-		            <div class="registration">
-		                Dont have an account yet?<br/>
-		                <a class="" href="#">
-		                    Create an account
-		                </a>
-		            </div>
+		            
+		           
 		
 		        </div>
 		
@@ -45,6 +36,7 @@ echo'
 		                          <input type="text" name="email" placeholder="Email" autocomplete="off" class="form-control placeholder-no-fix">
 		
 		                      </div>
+
 		                      <div class="modal-footer">
 		                          <button data-dismiss="modal" class="btn btn-default" type="button">Cancel</button>
 		                          <button class="btn btn-theme" type="button">Submit</button>

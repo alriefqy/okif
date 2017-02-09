@@ -14,34 +14,34 @@
                   	<div class="row mtbox">
                   		<div class="col-md-2 col-sm-2 col-md-offset-1 box0">
                   			<div class="box1">
-					  			<a href="'.adm.'user"><span class="li_user"></span>
+					  			<a href="'.adm.'user"><span class="fa fa-user"></span>
 					  			<h3>'.count($a).'</h3>
                   			</div>
 					  			<p>'.count($a).'&nbsp Number of user</p>
                   		</div>
                   		<div class="col-md-2 col-sm-2 box0">
                   			<div class="box1"></a>
-					  			<a href="'.adm.'mahasiswa"><span class="li_data"></span>
+					  			<a href="'.adm.'mahasiswa"><span class="fa fa-book"></span>
 					  			<h3>+'.count($b).'</h3>
                   			</div>
 					  			<p>'.count($b).'&nbspDatabase Mahasiswa dan Alumni</p>
                   		</div>
                   		<div class="col-md-2 col-sm-2 box0">
                   			<div class="box1"></a>
-					  			<a href="'.adm.'artikel"><span class="li_stack"></span><h3>'.count($c).'</h3>
+					  			<a href="'.adm.'artikel"><span class="fa fa-list-alt"></span><h3>'.count($c).'</h3>
                   			</div>
 					  			<p>'.count($c).'&nbspArtikel</p>
                   		</div>
                   		<div class="col-md-2 col-sm-2 box0">
                   			<div class="box1"></a>
-					  			<a href="'.adm.'informasi"><span class="li_news"></span>
+					  			<a href="'.adm.'informasi"><span class="fa fa-image"></span>
 					  			<h3>'.count($d).'</h3>
                   			</div>
 					  			<p>'.count($d).'&nbspData Media Informasi</p>
                   		</div>
                   		<div class="col-md-2 col-sm-2 box0">
                   			<div class="box1"></a>
-					  			<a href="'.adm.'pengurus"><span class="li_user"></span>
+					  			<a href="'.adm.'pengurus"><span class="fa fa-group"></span>
 					  			<h3>'.count($e).'</h3>
                   			</div>
 					  			<p>'.count($e).'&nbsp Number Of Pegurus </p>
@@ -149,21 +149,33 @@
                       <!-- First Member -->
                       <div class="desc">
                         <div class="thumb">
-                          <img class="img-circle" src="'.adm.'assets/img/D42114502.jpg" width="35px" height="35px" align="">
+                          <img class="img-circle" src="'.adm.'assets/img/github.png" width="35px" height="35px" align="">
                         </div>
                         <div class="details">
-                          <p><a href="#">Al Riefqy Dasmito</a><br/>
-                          <p>D42114502</p>
+                          <p><a href="#">Andi Muhammad Ryanto</a><br/>
+                          
                           </p>
                         </div>
                       </div>
-                      ';
+                      <div class="desc">
+                        <div class="thumb">
+                          <img class="img-circle" src="'.adm.'assets/img/github.png" width="35px" height="35px" align="">
+                        </div>
+                        <div class="details">
+                          <p><a href="#">Al Riefqy Dasmito</a><br/>
+                         
+                          </p>
+                        </div>
+                      </div>
+
+                      <h3>USER</h3>';
                       $data = $user->getuser();
                       foreach ($data as $a)
                       {
                         echo'
                       <div class="desc">
                         <div class="thumb">
+
                           <img class="img-circle" src="'.root.'asset/user/'.$a['foto'].'" width="35px" height="35px" align="">
                         </div>
                         <div class="details">

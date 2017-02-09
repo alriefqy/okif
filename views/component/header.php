@@ -1,4 +1,33 @@
 <?php
+switch ($model) 
+{
+	case '':
+	$title = 'Home';
+	break;
+	case 'about':
+	$title = 'About';
+	break;
+	case 'pengurus':
+	$title = 'Pengurus';
+	break;
+	case 'dewan':
+	$title = 'Dewan';
+	break;
+	case 'informasi':
+	$title = 'Informasi';
+	break;
+	case 'artikel':
+	$title = 'Artikel';
+	break;
+	case 'form':
+	$title = 'Form Database';
+	break;
+
+	default:
+	$title = 'Home';
+	break;
+}
+
 echo '
 <!DOCTYPE html>
 <html lang="en">
@@ -10,7 +39,7 @@ echo '
 	<meta name="keywords" content="informatika, unhas, teknik, okif">
 	<meta name="author" content="HMIF FT-UH, Riefqy, Jo">
 	
-	<title>Beranda | Organisasi Kemahasiswaan Informatika Fakultas Teknik Universitas Hasanuddin</title>
+	<title>'.$title.' | Organisasi Kemahasiswaan Informatika Fakultas Teknik Universitas Hasanuddin</title>
 	<link rel="shortcut icon" type="image/icon" href="assets/images/favico.ico"/>
 	<link href="'.root.'assets/css/font-awesome.css" rel="stylesheet">
 	<link href="'.root.'assets/css/bootstrap.css" rel="stylesheet">    
@@ -29,10 +58,19 @@ echo '
 	<!--	 WARNING: Respond.js does not work if you view the page via file:// -->
 	<!--[if lt IE 9]>
 	<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	
+	<script>tinymce.init({ selector:"textarea" });</script>
 	<![endif]-->
 </head>
 <body>
+	<div id="fb-root"></div>
+	<script>(function(d, s, id) {
+		var js, fjs = d.getElementsByTagName(s)[0];
+		if (d.getElementById(id)) return;
+		js = d.createElement(s); js.id = id;
+		js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8";
+		fjs.parentNode.insertBefore(js, fjs);
+	}(document, "script", "facebook-jssdk"));</script>
 
 	<!-- PRELOADER -->
 	<div id="preloader">
@@ -49,12 +87,11 @@ echo '
 		<!-- header top search -->
 		<div class="header-top">
 			<div class="container">
-				<form action="">
+				<form action="'.root.'result" method="GET">
 					<div id="search">
-						<input type="text" placeholder="Search okif-ftuh.org" name="s" id="m_search" style="display: inline-block;">
-						<button type="submit">
-							<i class="fa fa-search"></i>
-						</button>
+						
+						<input class="search_bar" type="text" name="cari" placeholder="Cari Artikel..">
+						
 					</div>
 				</form>
 			</div>
@@ -81,11 +118,7 @@ echo '
 							</ul>
 						</div>
 					</div>
-					<div class="col-md-6 col-sm-6 col-xs-6">
-						<div class="header-login">
-							<a class="login modal-form" data-target="#login-form" data-toggle="modal" href="#">Login</a>
-						</div>
-					</div>
+					
 				</div>
 			</div>
 		</div>
@@ -93,31 +126,7 @@ echo '
 	<!-- End header -->
 
 	<!-- Start login modal window -->
-	<div aria-hidden="false" role="dialog" tabindex="-1" id="login-form" class="modal leread-modal fade in">
-		<div class="modal-dialog">
-			<!-- Start login section -->
-			<div id="login-content" class="modal-content">
-				<div class="modal-header">
-					<button aria-label="Close" data-dismiss="modal" class="close" type="button"><span aria-hidden="true">×</span></button>
-					<h4 class="modal-title"><i class="fa fa-unlock-alt"></i>Login</h4>
-				</div>
-				<div class="modal-body">
-					<form>
-						<div class="form-group">
-							<input type="text" placeholder="User name" class="form-control">
-						</div>
-						<div class="form-group">
-							<input type="password" placeholder="Password" class="form-control">
-						</div>
-						<div class="loginbox">
-							<label><input type="checkbox"><span>Remember me</span></label>
-							<button class="btn signin-btn" type="button">SIGN IN</button>
-						</div>                    
-					</form>
-				</div>
-			</div>
-		</div>
-	</div>
+	
 	<!-- End login modal window -->
 
 	<!-- BEGIN MENU -->
@@ -151,7 +160,7 @@ echo '
 						</li>             
 						<li><a href="'.root.'informasi">Seputar OKIF FT-UH</a></li>
 						<li><a href="'.root.'artikel">IT Info</a></li>
-						<li><a href="form.php">Form</a></li>
+						<li><a href="'.root.'form">Form Database OKIF</a></li>
 					</ul>                     
 				</div><!--/.nav-collapse -->
 				<a href="#" id="search-icon">

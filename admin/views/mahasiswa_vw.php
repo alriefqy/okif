@@ -2,6 +2,9 @@
 $aksi = adm."controllers/mahasiswa_control.php?model=mahasiswa&method=";
 if(isset($method)) :
 echo '
+<script type="text/javascript" src="'.root.'assets/datatables/js/jquery.js"></script>
+<script type="text/javascript" src="'.root.'assets/datatables/js/dataTables.min.js"></script>
+<script type="text/javascript" src="'.root.'assets/datatables/js/jquery.dataTables.min.js"></script>
 <section id="main-content">
 	<section class="wrapper">
 		<h3><i class="fa fa-angle-right"></i>Mahasiswa Dan Alumni</h3>
@@ -18,7 +21,7 @@ echo '
 			$a = $alumni->getData();
 			echo'
 							<h4><a href="'.adm.'mahasiswa/add"><button type="button" class="btn btn-default">Tambah Data</button></a></h4>
-							<table class="table table-bordered table-striped table-condensed">
+							<table class="table table-bordered table-striped table-condensed" id="mydata">
 								<thead>
 									<tr>
 										<th>No</th>
@@ -280,4 +283,7 @@ echo '
 				return false;
 			}
 		}
+	</script>
+	<script type="text/javascript">
+		$('#mydata').dataTable();
 	</script>

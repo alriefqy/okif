@@ -1,6 +1,8 @@
 <?php
 if (isset($model)):
+    
     $homepage_active = $model == ''? "active" : "";
+    $headline_active = $model == 'headline' ? "active" : "";
     $pengurus_active = $model == 'pengurus' ? "active" : "";
     $ketua_active = $model =='ketua' ? "active" : "";
     $dewan_active = $model =='dewan' ? "active" : "";
@@ -9,6 +11,7 @@ if (isset($model)):
     $berita_active = $model == 'berita'? "active" : "";
     $artikel_active = $model == 'artikel'? "active" : "";
     $user_active = $model == 'user'? "active" : "";
+
 endif;
 echo '
 		 <aside>
@@ -25,9 +28,15 @@ echo '
                           <span>Dashboard</span>
                       </a>
                   </li>
+                  <li class="mt">
+                      <a class="'.$headline_active.'" href="'.adm.'headline">
+                          <i class="fa fa-th"></i>
+                          <span>Headline</span>
+                      </a>
+                  </li>
                   <li class="sub-menu">
                       <a class ="'.$pengurus_active.' '.$ketua_active.' '.$dewan_active.'" href="javascript:;" >
-                          <i class="fa fa-user"></i>
+                          <i class="fa fa-group"></i>
                           <span>Pengurus</span>
                       </a>
                       <ul class="sub">
@@ -47,24 +56,31 @@ echo '
                   </li>
                   <li class="sub-menu">
                       <a class="'.$media_active.'" href="'.adm.'informasi">
-                          <i class="fa fa-tasks"></i>
+                          <i class="fa fa-image"></i>
                           <span>Media Informasi</span>
                       </a>
                   </li>
                   <li class="sub-menu">
                       <a class="'.$artikel_active.'" href="'.adm.'artikel" >
-                          <i class="fa fa-tasks"></i>
+                          <i class="fa fa-list-alt"></i>
                           <span>Artikel</span>
                       </a>
                   </li>
+                  ';
+                  if ($_SESSION['level'] == 'Admin')
+                  {
+                    echo'
                   <li class="sub-menu">
                       <a class="'.$user_active.'" href="'.adm.'user" >
                           <i class="fa fa-user"></i>
                           <span>User</span>
                       </a>
                   </li>
-                  
+                  ';
+                }
 
+                  
+                echo'
               </ul>
               <!-- sidebar menu end-->
           </div>

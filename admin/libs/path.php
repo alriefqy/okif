@@ -1,6 +1,6 @@
 <?php 
 
-	define('root', 'http://localhost/okif/');
-	define('adm', 'http://localhost/okif/admin/');
+	define('root', 'http://localhost/okif-unhas/');
+	define('adm', 'http://localhost/okif-unhas/admin/');
 
 ?>

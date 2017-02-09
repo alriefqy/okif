@@ -1,5 +1,5 @@
 <?php
-define('adm','http://localhost/okif/admin/');
+define('adm','http://localhost/okif-unhas/admin/');
 
 	session_start();
 	session_unset();

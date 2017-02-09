@@ -2,8 +2,6 @@
 require('libs/path.php');
 require('models/load_class.php');
 require('libs/routers.php');
-
-
 require('views/component/header.php');
 
 	switch($model)
@@ -12,6 +10,7 @@ require('views/component/header.php');
 			include 'views/home.php';
 		break;
 		case 'pengurus':
+			
 			include 'views/pengurus.php';
 		break;
 		case 'dewan':
@@ -34,6 +33,12 @@ require('views/component/header.php');
 		case 'about':
 			include 'views/tentang.php';
 		break; 
+		case 'form':
+        	include 'views/form.php';
+        break;
+        case 'result':
+        	include 'views/result.php';
+        break;
 
 		default:
 			include 'views/home.php';

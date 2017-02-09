@@ -1,3 +1,6 @@
+<?php
+echo'
+
 <footer class="site-footer">
 	<div class="text-center">
 		2014 - Alvarez.is
@@ -5,4 +8,6 @@
 			<i class="fa fa-angle-up"></i>
 		</a>
 	</div>
+
 </footer>
+';

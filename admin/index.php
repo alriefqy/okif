@@ -30,9 +30,19 @@ require('views/component/aside.php');
 		case 'informasi':
 		include 'views/informasi_vw.php';
 		break;
+       
 		case 'user':
+         if ($_SESSION['level'] == 'Admin')
+        {
 		include 'views/user_vw.php';
+        }
+        else
+        {
+         echo '<p>Error</p>';
+        }
 		break;
+        
+        
 		case 'mahasiswa':
 		include 'views/mahasiswa_vw.php';
 		break;
@@ -42,6 +52,10 @@ require('views/component/aside.php');
         case 'dewan':
         include 'views/dewan_vw.php';
         break;
+        case 'headline':
+        include 'views/headline_vw.php';
+        break;
+        
 		default:
 		include 'views/home.php';
 		break;

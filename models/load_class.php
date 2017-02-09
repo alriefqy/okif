@@ -1,5 +1,4 @@
 <?php 
-
 require_once('db.php');
 //dependency injection->pelajari
 
@@ -23,6 +22,7 @@ function autoload($class)
 		$alumni = new mahasiswa_model($db);
 		$ketua = new ketua_model($db);
 		$dewan = new dewan_model($db);
+		$headline = new headline_model($db);
 		
 	} 
 	catch (Exception $e) 
